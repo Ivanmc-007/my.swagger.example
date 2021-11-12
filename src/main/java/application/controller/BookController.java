@@ -3,6 +3,7 @@ package application.controller;
 import application.model.dto.BookSaveDTO;
 import application.model.entity.Book;
 import application.service.BookService;
+import application.util.ResponseCode;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -29,7 +30,7 @@ public class BookController {
     @Operation(description = "Save book")
     @ApiResponses(value = {
             @ApiResponse(
-                    responseCode = "200",
+                    responseCode = ResponseCode.OK,
                     description = "Saved books",
                     content = {
                             @Content(
@@ -37,7 +38,7 @@ public class BookController {
                                     array = @ArraySchema(schema = @Schema(implementation = Book.class)))
                     }),
             @ApiResponse(
-                    responseCode = "409",
+                    responseCode = ResponseCode.CONFLICT,
                     description = "Could not execute statement",
                     content = {
                             @Content(
