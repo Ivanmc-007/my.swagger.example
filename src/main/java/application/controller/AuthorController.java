@@ -3,6 +3,7 @@ package application.controller;
 import application.model.dto.AuthorSaveDTO;
 import application.model.entity.Author;
 import application.service.AuthorService;
+import application.util.ResponseCode;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -27,7 +28,7 @@ public class AuthorController {
     @Operation(description = "Save author")
     @ApiResponses(value = {
             @ApiResponse(
-                    responseCode = "200",
+                    responseCode = ResponseCode.OK,
                     description = "Saved author",
                     content = {
                             @Content(
@@ -43,7 +44,7 @@ public class AuthorController {
     @Operation(description = "Get author")
     @ApiResponses(value = {
             @ApiResponse(
-                    responseCode = "200",
+                    responseCode = ResponseCode.OK,
                     description = "Found the author",
                     content = {
                             @Content(
